@@ -9,7 +9,7 @@ public record ModMetadata : AbstractModMetadata
     public override string ModGuid { get; init; } = "ca.bushtail.euroforskier";
     public override string Name { get; init; } = "500EuroForSkier";
     public override string Author { get; init; } = "bushtail";
-    public override List<string>? Contributors { get; init; }
+    public override List<string>? Contributors { get; init; } = ["MadBrother"];
     public override Version Version { get; init; } = new(typeof(ModMetadata).Assembly.GetName().Version?.ToString(3));
     public override Range SptVersion { get; init; } = new("~4.0.0");
     public override List<string>? Incompatibilities { get; init; }
