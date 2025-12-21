@@ -47,14 +47,16 @@ public class EuroForSkier(DatabaseServer databaseServer, ISptLogger<EuroForSkier
     {
         var exchangedCurrency = amt / _exchangeRate;
         if(exchangedCurrency is null) return amt;
-        return Math.Floor(exchangedCurrency.Value);
+        var flooredValue = Math.Floor(exchangedCurrency.Value);
+        return flooredValue == 0 ? 1 : flooredValue;
     }
 
     private long? ExchangeCurrency(long? amt)
     {
         var exchangedCurrency = amt / _exchangeRate;
         if(exchangedCurrency is null) return amt;
-        return (long)Math.Floor(exchangedCurrency.Value);
+        var flooredValue = (long)Math.Floor(exchangedCurrency.Value);
+        return flooredValue == 0 ? 1 : flooredValue;
     }
 
     private void ConvertBarterCurrency(Trader trader)
